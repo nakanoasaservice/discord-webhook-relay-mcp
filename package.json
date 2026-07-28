@@ -1,0 +1,27 @@
+{
+	"name": "cloudflare-worker-template",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"test": "vitest",
+		"cf-typegen": "wrangler types",
+		"check:fix": "biome check --write",
+		"check": "biome check",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"hono": "^4.12.30"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.3",
+		"@cloudflare/vitest-pool-workers": "^0.18.4",
+		"@types/node": "^26.1.1",
+		"typescript": "^7.0.2",
+		"vitest": "^4.1.10",
+		"wrangler": "^4.110.0"
+	}
+}
