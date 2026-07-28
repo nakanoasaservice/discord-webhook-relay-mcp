@@ -5,20 +5,15 @@ import { describe, expect, it } from "vitest";
 // `Request` to pass to `worker.fetch()`.
 const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
 
-describe("Hello World worker", () => {
-	it("responds with Hello World! (unit style)", async () => {
-		const request = new IncomingRequest("http://example.com");
-		// Create an empty context to pass to `worker.fetch()`.
+describe("Discord webhook relay MCP worker", () => {
+	it("responds with ok on /health (unit style)", async () => {
+		const request = new IncomingRequest("http://example.com/health");
 		const response = await exports.default.fetch(request, env);
-		expect(await response.text()).toMatchInlineSnapshot(
-			'"{"message":"Hello World!"}"',
-		);
+		expect(await response.json()).toEqual({ status: "ok" });
 	});
 
-	it("responds with Hello World! (integration style)", async () => {
-		const response = await exports.default.fetch("https://example.com");
-		expect(await response.text()).toMatchInlineSnapshot(
-			'"{"message":"Hello World!"}"',
-		);
+	it("responds with ok on /health (integration style)", async () => {
+		const response = await exports.default.fetch("https://example.com/health");
+		expect(await response.json()).toEqual({ status: "ok" });
 	});
 });

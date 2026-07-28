@@ -1,10 +1,14 @@
-# Cloudflare Worker Template
+# Discord Webhook Relay MCP
 
-A minimal Cloudflare Workers template using [Hono](https://hono.dev/) and TypeScript.
+An MCP server that does one thing: takes a Discord webhook URL and a message, and sends the
+message to Discord. Built with the [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)'s
+[Hono middleware](https://github.com/modelcontextprotocol/typescript-sdk/tree/main/packages/middleware/hono),
+running on Cloudflare Workers.
 
 ## Stack
 
 - **Runtime**: Cloudflare Workers
+- **MCP**: `@modelcontextprotocol/server` + `@modelcontextprotocol/hono`
 - **Framework**: Hono
 - **Language**: TypeScript
 - **Test**: Vitest + `@cloudflare/vitest-pool-workers`
@@ -16,6 +20,20 @@ A minimal Cloudflare Workers template using [Hono](https://hono.dev/) and TypeSc
 bun install
 bun run dev
 ```
+
+`http://localhost:8787/mcp` is the MCP endpoint (Streamable HTTP).
+
+## Tool
+
+### `send_discord_message`
+
+| Parameter    | Type   | Description                              |
+|--------------|--------|-------------------------------------------|
+| `webhookUrl` | string | The destination Discord webhook URL       |
+| `message`    | string | The message to send (1–2000 characters)  |
+
+`webhookUrl` is validated to match the shape of a Discord webhook URL, then the server sends
+`POST { content: message }` to it.
 
 ## Commands
 
@@ -32,16 +50,14 @@ bun run dev
 
 ```
 src/
-  index.ts   # Entry point
+  index.ts   # MCP server and Hono app entry point
 wrangler.jsonc # Wrangler configuration
 ```
 
-## Configuration
+## Notes
 
-Edit [wrangler.jsonc](wrangler.jsonc) to configure:
-
-- Environment variables (`vars`)
-- Secrets (`secrets`)
-- Bindings (KV, R2, D1, AI, etc.)
-- Static assets
-- Service bindings
+- Cloudflare Workers has no concept of a local bind, so `createMcpHonoApp`'s default
+  localhost-only DNS-rebinding protection is disabled via `host: "0.0.0.0"` (see `src/index.ts`).
+  Restrict it further with `allowedHosts` if you need to lock it down to your deployed hostname.
+- The webhook URL is passed in as a tool argument on every call, so the server never stores or
+  needs to hold a secret for it.

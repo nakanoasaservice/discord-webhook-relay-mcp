@@ -1,5 +1,5 @@
 {
-	"name": "cloudflare-worker-template",
+	"name": "discord-webhook-relay-mcp",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -14,7 +14,10 @@
 		"check-types": "tsc --noEmit"
 	},
 	"dependencies": {
-		"hono": "^4.12.30"
+		"@modelcontextprotocol/hono": "2.0.0",
+		"@modelcontextprotocol/server": "2.0.0",
+		"hono": "^4.12.30",
+		"zod": "4.4.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.3",
