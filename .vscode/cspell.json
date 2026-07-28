@@ -1,4 +1,11 @@
 {
 	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-	"words": ["bunx", "esbuild", "naas", "nakano", "nakanoaas"]
+	"words": [
+		"bunx",
+		"esbuild",
+		"modelcontextprotocol",
+		"naas",
+		"nakano",
+		"nakanoaas"
+	]
 }

@@ -73,6 +73,6 @@ const handler = createMcpHandler(buildServer);
 const app = createMcpHonoApp({ host: "0.0.0.0" });
 
 app.get("/health", (c) => c.json({ status: "ok" }));
-app.all("/mcp", (c) => handler.fetch(c.req.raw));
+app.all("/", (c) => handler.fetch(c.req.raw));
 
 export default app;

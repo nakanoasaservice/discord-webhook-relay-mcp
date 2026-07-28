@@ -21,7 +21,7 @@ bun install
 bun run dev
 ```
 
-`http://localhost:8787/mcp` is the MCP endpoint (Streamable HTTP).
+`http://localhost:8787/` is the MCP endpoint (Streamable HTTP).
 
 ## Tool
 
