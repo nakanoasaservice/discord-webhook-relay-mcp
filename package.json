@@ -17,15 +17,15 @@
 		"@modelcontextprotocol/hono": "2.0.0",
 		"@modelcontextprotocol/server": "2.0.0",
 		"@valibot/to-json-schema": "1.7.1",
-		"hono": "^4.12.33",
-		"valibot": "1.4.2"
+		"hono": "^4.13.7",
+		"valibot": "1.5.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5.6",
-		"@cloudflare/vitest-pool-workers": "^0.20.0",
-		"@types/node": "^26.1.2",
+		"@biomejs/biome": "^2.5.13",
+		"@cloudflare/vitest-pool-workers": "^0.22.0",
+		"@types/node": "^26.5.1",
 		"typescript": "^7.0.2",
 		"vitest": "^4.1.10",
-		"wrangler": "^4.117.0"
+		"wrangler": "^4.131.0"
 	}
 }
