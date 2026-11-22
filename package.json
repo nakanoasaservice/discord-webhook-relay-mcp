@@ -7,11 +7,13 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
-		"test": "vitest",
+		"test": "vp test run",
 		"cf-typegen": "wrangler types",
-		"check:fix": "biome check --write",
-		"check": "biome check",
-		"check-types": "tsc --noEmit"
+		"check:fix": "vp check --fix",
+		"check": "vp check",
+		"check-types": "tsc --noEmit",
+		"build": "vp run build:worker",
+		"build:worker": "wrangler deploy --dry-run --outdir dist"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/hono": "2.0.1",
@@ -21,11 +23,18 @@
 		"valibot": "1.5.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5.14",
-		"@cloudflare/vitest-pool-workers": "^0.22.0",
+		"@cloudflare/vitest-plugin": "^1.8.4",
 		"@types/node": "^26.6.2",
 		"typescript": "^7.0.2",
-		"vitest": "^4.1.10",
+		"vite-plus": "catalog:",
+		"vitest": "catalog:",
 		"wrangler": "^4.140.0"
-	}
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "24.22.1"
+		}
+	},
+	"packageManager": "pnpm@12.21.0"
 }
