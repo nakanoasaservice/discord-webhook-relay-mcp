@@ -16,19 +16,19 @@
 		"build:worker": "wrangler deploy --dry-run --outdir dist"
 	},
 	"dependencies": {
-		"@modelcontextprotocol/hono": "2.0.1",
-		"@modelcontextprotocol/server": "2.1.0",
+		"@modelcontextprotocol/hono": "2.0.2",
+		"@modelcontextprotocol/server": "2.4.0",
 		"@valibot/to-json-schema": "1.8.0",
-		"hono": "^4.13.9",
+		"hono": "^4.13.19",
 		"valibot": "1.5.0"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-plugin": "^1.8.4",
-		"@types/node": "^26.6.2",
+		"@types/node": "^26.6.6",
 		"typescript": "^7.0.2",
 		"vite-plus": "catalog:",
 		"vitest": "catalog:",
-		"wrangler": "^4.140.0"
+		"wrangler": "^4.165.0"
 	},
 	"devEngines": {
 		"runtime": {
