@@ -11,8 +11,8 @@ running on Cloudflare Workers.
 - **MCP**: `@modelcontextprotocol/server` + `@modelcontextprotocol/hono`
 - **Framework**: Hono
 - **Language**: TypeScript
-- **Test**: Vitest + `@cloudflare/vitest-pool-workers`
-- **Linter/Formatter**: Biome
+- **Test**: Vitest + `@cloudflare/vitest-plugin`
+- **Development toolchain**: Vite+ (Oxlint, Oxfmt and Vitest)
 
 ## Getting Started
 
